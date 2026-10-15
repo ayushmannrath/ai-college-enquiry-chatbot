@@ -1,0 +1,51 @@
+question_id,category,question,answer
+1,Admissions,What is the eligibility criteria for admission?,"To be eligible for admission, you must have completed your 12th grade with a minimum of 50% marks. Science stream students should have Physics, Chemistry, and Mathematics as core subjects."
+2,Admissions,What are the admission requirements?,"For admission, you need to have passed 12th grade from a recognized board. Candidates from Science, Commerce, and Humanities streams are eligible for various programs."
+3,Admissions,How do I apply for admission to the college?,"You can apply through our online portal at www.college.edu/admissions. Fill the application form, upload required documents, and submit the fees."
+4,Admissions,What is the application deadline?,The application deadline for the current academic year is typically in June. Early applications are recommended. Last date is 30th June.
+5,Admissions,What documents are required for admission?,"Required documents include: 10th and 12th mark sheets, birth certificate, caste certificate if applicable, Aadhar card, passport-size photos, and proof of residency."
+6,Admissions,Is there an entrance exam required?,"Entrance exams are required for certain programs. For engineering, JEE Main scores are required. For management programs, CAT scores are needed."
+7,Admissions,What is the selection process?,"The selection process consists of three stages: Merit-based qualification check, personal interview, and final selection based on overall performance."
+8,Admissions,When will admission results be announced?,Admission results are typically announced within 2 to 3 weeks after the selection process. Results are published on the college website.
+9,Admissions,Can I apply if I am from another state?,"Yes, students from other states are welcome to apply. There is no state-specific restriction. Students must meet the eligibility criteria."
+10,Admissions,What is the minimum marks required for admission?,The minimum marks required typically range from 50 to 60 percent in 12th depending on the course and category.
+11,Courses,What courses are offered by the college?,"Our college offers a wide range of programs including B.Tech, B.Sc, B.Com, B.A, M.Tech, and MBA programs across 15 departments."
+12,Courses,Do you offer engineering programs?,"Yes, we offer B.Tech programs in Computer Science, Electronics, Mechanical, Civil, and Electrical Engineering with a 4-year duration."
+13,Courses,Are there science and commerce streams?,"Yes, we offer both science and commerce streams. Science includes B.Sc in Physics, Chemistry, Biology, and Mathematics. Commerce includes B.Com and BBA."
+14,Courses,What specializations are available?,"Engineering specializations include AI and ML, Data Science, Cybersecurity, and Cloud Computing. Management offers Finance, HR, and Marketing."
+15,Courses,Is there a computer science program?,"Yes, our B.Tech Computer Science Engineering program is highly popular. It covers programming, databases, web development, AI, and cloud computing."
+16,Courses,Do you offer management courses?,"Yes, we offer MBA and BBA programs with specializations in Finance, Marketing, HR, and Operations Management."
+17,Courses,What is the duration of each course?,"Most undergraduate programs are 3 to 4 years. B.Tech is 4 years, B.Sc and B.Com are 3 years, and postgraduate programs are 2 years."
+18,Courses,Are there distance learning programs?,"Yes, we offer online and distance learning programs for select courses. These are ideal for working professionals."
+19,Courses,Do you offer vocational courses?,"We offer short-term vocational training programs in IT, Electronics, and Healthcare. These are 6 to 12 months long."
+20,Courses,What is the curriculum structure?,"Our curriculum follows the latest industry standards and includes theoretical knowledge, practical labs, projects, and internship opportunities."
+21,Fees,What are the total fees for each course?,B.Tech fees are 4 lakhs per year. B.Sc is 2 lakhs per year. B.Com is 1.5 lakhs per year. MBA is 6 lakhs per year.
+22,Fees,What is the annual fee structure?,"Annual fee structure: First year 4 lakhs including admission fee. Subsequent years 3.5 lakhs each. This includes tuition, lab, and exam fees."
+23,Fees,Are there separate fees for different streams?,"Fees are same across all streams within the same course level. However, specialized programs like AI and ML have an additional 50000 per year."
+24,Fees,When should fees be paid?,Fees are due before the start of each academic year. First installment in July and second installment in December.
+25,Fees,What are the payment options available?,"Payment options include online transfer, credit and debit cards, NEFT, RTGS, and demand drafts."
+26,Fees,Is there an installment payment facility?,"Yes, we provide installment facility. Fees can be paid in 2 installments: 60 percent at start and 40 percent mid-year."
+27,Fees,What additional charges are included?,"Additional charges include hostel fees 1.5 lakhs per year, lab materials 5000, sports fee 2000, and university registration fees."
+28,Fees,Are there any hidden charges?,No hidden charges. All fees are clearly mentioned in the prospectus. Any additional activity fees are optional.
+29,Fees,Do fees vary for reserved category students?,Fees are same for all eligible students regardless of category. However merit scholarships and government aid may apply.
+30,Fees,What happens if fees are paid late?,"If fees are paid after the deadline, a late fee of 500 per month is charged. Non-payment may result in suspension."
+31,Scholarships,What scholarship programs are available?,"We offer Merit Scholarships 10 to 100 percent waiver, Need-based Scholarships up to 2 lakhs, Sports Scholarships, and Government scholarships."
+32,Scholarships,Who is eligible for merit scholarships?,Merit scholarships are awarded to top 20 percent students based on entrance exam scores and 12th grade marks. Above 90 percent gets full waiver.
+33,Scholarships,Are there need-based scholarships?,Need-based scholarships of up to 2 lakhs are available for economically weaker students with family income below 2 lakhs per annum.
+34,Scholarships,How much is the scholarship amount?,Merit scholarships range from 25 to 100 percent waiver on tuition. Need-based scholarships provide up to 2 lakhs.
+35,Scholarships,What is the process to apply for scholarships?,Fill the scholarship form on the portal during admission. Submit proof of merit and income certificate for need-based scholarships.
+36,Scholarships,Are there special scholarships for girls?,"Yes, we have dedicated scholarships for girl students. Top 50 girl students get 50 percent fee waiver."
+37,Placements,What is the placement percentage?,Our college has a placement rate of 94 percent for engineering and 87 percent for non-engineering programs. 300 plus students placed annually.
+38,Placements,What are the average salary packages offered?,Average salary package is 6 lakhs per annum for engineering. Top companies offer up to 15 lakhs. Non-engineering average is 3.5 lakhs.
+39,Placements,Which companies visit the campus for recruitment?,"Companies like TCS, Infosys, Wipro, HCL, Microsoft, Google, Amazon, and Accenture visit campus for recruitment."
+40,Placements,Is there a dedicated placement cell?,"Yes, our college has a dedicated Career Development and Placement Cell with experienced coordinators."
+41,Placements,What is the placement process?,"The placement process includes company registrations, written tests, technical interviews, HR interviews, and final selection."
+42,Placements,Do all students get placed?,"While we strive for 100 percent placements, about 94 percent of participating students get placed successfully."
+43,Facilities,What hostel facilities are available?,Our hostel accommodates 1200 plus students with separate facilities for boys and girls. Rooms have proper ventilation and attached bathrooms.
+44,Facilities,Is the hostel accommodation co-ed?,"No, hostel accommodation is separate for boys and girls. We have 6 boys hostel blocks and 4 girls hostel blocks."
+45,Facilities,What are the hostel charges?,Hostel charges are 1.5 lakhs per year for standard rooms and 1.8 lakhs for premium AC rooms. This includes meals and utilities.
+46,Facilities,Is Wi-Fi available in the hostel?,"Yes, high-speed Wi-Fi at 50 Mbps is available throughout the hostel 24 by 7 with multiple access points per room."
+47,Facilities,What sports facilities are available?,"Sports facilities include football field, basketball court, volleyball court, cricket ground, badminton court, gym, and swimming pool."
+48,Facilities,Is there a library in the college?,"Yes, our central library has 50000 plus books, 30 plus journals, and digital access to e-books and online databases."
+49,Facilities,What are the library facilities?,"Library features include reading halls with 200 seats, computer lab, Wi-Fi, air conditioning, and 24-hour access for research."
+50,Facilities,Are there medical facilities on campus?,"Yes, we have a medical center on campus with qualified doctors, nurses, diagnostic equipment, and ambulance services."
