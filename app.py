@@ -51,6 +51,16 @@ st.markdown("---")
 with st.sidebar:
     st.header("⚙️ Options")
 
+        if "dark_mode" not in st.session_state:
+        st.session_state.dark_mode = False
+
+    st.toggle(
+        "🌙 Dark mode",
+        key="dark_mode",
+        help="Switch between light and dark mode",
+    )
+
+
     stats = st.session_state.manager.get_session_stats()
     st.metric("Total Messages", stats["total_messages"])
     st.metric("Your Questions", stats["user_messages"])
@@ -85,6 +95,81 @@ with st.sidebar:
     """)
 
 # Display chat history
+# Theme styling with readable text in both modes
+if st.session_state.dark_mode:
+    background = "#0f172a"
+    card_background = "#1e293b"
+    text_color = "#f8fafc"
+    muted_color = "#cbd5e1"
+    border_color = "#475569"
+    input_background = "#1e293b"
+else:
+    background = "#f7f9fc"
+    card_background = "#ffffff"
+    text_color = "#172033"
+    muted_color = "#64748b"
+    border_color = "#cbd5e1"
+    input_background = "#ffffff"
+
+st.markdown(
+    f"""
+    <style>
+    .stApp {{
+        background-color: {background} !important;
+        color: {text_color} !important;
+    }}
+
+    [data-testid="stSidebar"] {{
+        background-color: {card_background} !important;
+    }}
+
+    [data-testid="stSidebar"] * {{
+        color: {text_color} !important;
+    }}
+
+    .user-msg,
+    .bot-msg {{
+        background-color: {card_background} !important;
+        color: {text_color} !important;
+        border: 1px solid {border_color} !important;
+    }}
+
+    .user-msg b,
+    .bot-msg b,
+    .user-msg,
+    .bot-msg,
+    .meta,
+    p,
+    label,
+    span,
+    div {{
+        color: {text_color};
+    }}
+
+    .meta {{
+        color: {muted_color} !important;
+    }}
+
+    input,
+    textarea,
+    select {{
+        background-color: {input_background} !important;
+        color: {text_color} !important;
+        border: 1px solid {border_color} !important;
+    }}
+
+    button {{
+        color: {text_color} !important;
+    }}
+
+    h1, h2, h3, h4, h5, h6 {{
+        color: {text_color} !important;
+    }}
+    </style>
+    """,
+    unsafe_allow_html=True,
+)
+
 for msg in st.session_state.messages:
     if msg["sender"] == "user":
         st.markdown(
