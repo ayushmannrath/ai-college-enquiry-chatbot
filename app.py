@@ -10,7 +10,7 @@ st.set_page_config(
     layout="wide",
 )
 
-# Initialize session state
+# Session state
 if "manager" not in st.session_state:
     st.session_state.manager = ChatbotManager("college_faq_dataset.csv")
 
@@ -20,117 +20,196 @@ if "messages" not in st.session_state:
 if "dark_mode" not in st.session_state:
     st.session_state.dark_mode = False
 
-# Theme colors
+# Theme palette
 if st.session_state.dark_mode:
-    background = "#0f172a"
-    card_background = "#1e293b"
-    text_color = "#f8fafc"
-    muted_color = "#cbd5e1"
-    border_color = "#475569"
-    input_background = "#1e293b"
-    user_background = "#17365d"
-    bot_background = "#312e4b"
+    app_background = "#0f172a"
+    surface = "#1e293b"
+    surface_alt = "#263449"
+    text = "#f8fafc"
+    muted = "#cbd5e1"
+    border = "#475569"
+    input_background = "#111827"
+    user_background = "#12345b"
+    bot_background = "#352d55"
+    header_background = "#172554"
 else:
-    background = "#f7f9fc"
-    card_background = "#ffffff"
-    text_color = "#172033"
-    muted_color = "#64748b"
-    border_color = "#cbd5e1"
+    app_background = "#f7f9fc"
+    surface = "#ffffff"
+    surface_alt = "#f8fafc"
+    text = "#172033"
+    muted = "#64748b"
+    border = "#cbd5e1"
     input_background = "#ffffff"
     user_background = "#e3f2fd"
     bot_background = "#f3e5f5"
+    header_background = "#ffffff"
 
-# Global styling. Explicit colors keep text visible in both modes.
+# Contrast-safe styling. Keep selectors scoped; do not color every div globally.
 st.markdown(
     f"""
     <style>
-    .stApp {{
-        background-color: {background} !important;
-        color: {text_color} !important;
+    html, body, [data-testid="stAppViewContainer"] {{
+        background-color: {app_background} !important;
+    }}
+
+    [data-testid="stAppViewContainer"] > .main {{
+        background-color: {app_background} !important;
+    }}
+
+    [data-testid="stHeader"] {{
+        background-color: {app_background} !important;
     }}
 
     [data-testid="stSidebar"] {{
-        background-color: {card_background} !important;
-        border-right: 1px solid {border_color};
+        background-color: {surface} !important;
+        border-right: 1px solid {border} !important;
     }}
 
-    [data-testid="stSidebar"] * {{
-        color: {text_color} !important;
+    [data-testid="stSidebar"] section,
+    [data-testid="stSidebar"] .stMarkdown,
+    [data-testid="stSidebar"] .stCaption,
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] p,
+    [data-testid="stSidebar"] span,
+    [data-testid="stSidebar"] h1,
+    [data-testid="stSidebar"] h2,
+    [data-testid="stSidebar"] h3,
+    [data-testid="stSidebar"] h4,
+    [data-testid="stSidebar"] h5,
+    [data-testid="stSidebar"] h6 {{
+        color: {text} !important;
+    }}
+
+    .app-title {{
+        background: {header_background} !important;
+        border: 1px solid {border} !important;
+        border-radius: 16px !important;
+        padding: 20px 24px !important;
+        margin: 0 0 10px 0 !important;
+    }}
+
+    .app-title h1 {{
+        color: {text} !important;
+        margin: 0 0 6px 0 !important;
+        font-size: 2rem !important;
+    }}
+
+    .app-title p {{
+        color: {muted} !important;
+        margin: 0 !important;
+        font-size: 0.98rem !important;
     }}
 
     .user-msg {{
         background-color: {user_background} !important;
-        color: {text_color} !important;
+        color: {text} !important;
         padding: 12px 16px;
         border-radius: 10px;
-        border-left: 4px solid #1976d2;
-        border-top: 1px solid {border_color};
-        border-right: 1px solid {border_color};
-        border-bottom: 1px solid {border_color};
+        border: 1px solid {border} !important;
+        border-left: 4px solid #1976d2 !important;
         margin: 8px 0;
     }}
 
     .bot-msg {{
         background-color: {bot_background} !important;
-        color: {text_color} !important;
+        color: {text} !important;
         padding: 12px 16px;
         border-radius: 10px;
-        border-left: 4px solid #7b1fa2;
-        border-top: 1px solid {border_color};
-        border-right: 1px solid {border_color};
-        border-bottom: 1px solid {border_color};
+        border: 1px solid {border} !important;
+        border-left: 4px solid #a855f7 !important;
         margin: 8px 0;
     }}
 
-    .user-msg, .bot-msg, .user-msg *, .bot-msg * {{
-        color: {text_color} !important;
+    .user-msg b, .bot-msg b,
+    .user-msg span, .bot-msg span,
+    .user-msg div, .bot-msg div,
+    .user-msg br, .bot-msg br {{
+        color: {text} !important;
     }}
 
     .meta {{
+        color: {muted} !important;
         font-size: 0.75em;
-        color: {muted_color} !important;
         margin-top: 6px;
     }}
 
-    h1, h2, h3, h4, h5, h6, p, label, span, div {{
-        color: {text_color};
+    /* Normal Streamlit markdown text, excluding the custom title and messages. */
+    [data-testid="stAppViewContainer"] .stMarkdown:not(:has(.app-title)):not(:has(.user-msg)):not(:has(.bot-msg)) p,
+    [data-testid="stAppViewContainer"] .stMarkdown:not(:has(.app-title)):not(:has(.user-msg)):not(:has(.bot-msg)) li,
+    [data-testid="stAppViewContainer"] .stMarkdown:not(:has(.app-title)):not(:has(.user-msg)):not(:has(.bot-msg)) h1,
+    [data-testid="stAppViewContainer"] .stMarkdown:not(:has(.app-title)):not(:has(.user-msg)):not(:has(.bot-msg)) h2,
+    [data-testid="stAppViewContainer"] .stMarkdown:not(:has(.app-title)):not(:has(.user-msg)):not(:has(.bot-msg)) h3,
+    [data-testid="stAppViewContainer"] .stMarkdown:not(:has(.app-title)):not(:has(.user-msg)):not(:has(.bot-msg)) h4,
+    [data-testid="stAppViewContainer"] .stMarkdown:not(:has(.app-title)):not(:has(.user-msg)):not(:has(.bot-msg)) label {{
+        color: {text} !important;
     }}
 
     [data-testid="stCaptionContainer"],
-    [data-testid="stCaptionContainer"] * {{
-        color: {muted_color} !important;
+    [data-testid="stCaptionContainer"] p {{
+        color: {muted} !important;
     }}
 
     input, textarea,
     div[data-baseweb="input"] input,
+    div[data-baseweb="textarea"] textarea,
     div[data-baseweb="select"] > div {{
         background-color: {input_background} !important;
-        color: {text_color} !important;
-        border-color: {border_color} !important;
+        color: {text} !important;
+        -webkit-text-fill-color: {text} !important;
+        border: 1px solid {border} !important;
     }}
 
     input::placeholder, textarea::placeholder {{
-        color: {muted_color} !important;
+        color: {muted} !important;
+        -webkit-text-fill-color: {muted} !important;
     }}
 
-    button {{
-        color: {text_color} !important;
+    div[data-baseweb="select"] *,
+    div[data-baseweb="input"] *,
+    div[data-baseweb="textarea"] * {{
+        color: {text} !important;
     }}
 
     .stButton > button {{
-        border-color: {border_color} !important;
+        background-color: {surface} !important;
+        color: {text} !important;
+        border: 1px solid {border} !important;
+    }}
+
+    .stButton > button:hover {{
+        border-color: #60a5fa !important;
+        color: {text} !important;
+    }}
+
+    [data-testid="stMetric"] {{
+        background-color: {surface_alt} !important;
+        border: 1px solid {border} !important;
+    }}
+
+    [data-testid="stMetricLabel"],
+    [data-testid="stMetricValue"],
+    [data-testid="stMetricDelta"] {{
+        color: {text} !important;
+    }}
+
+    [data-testid="stExpander"] {{
+        background-color: {surface} !important;
+        border: 1px solid {border} !important;
+    }}
+
+    [data-testid="stExpander"] summary,
+    [data-testid="stExpander"] summary p,
+    [data-testid="stExpander"] details {{
+        color: {text} !important;
+    }}
+
+    .stAlert, .stAlert * {{
+        color: {text} !important;
     }}
     </style>
     """,
     unsafe_allow_html=True,
 )
-
-# Page heading
-st.markdown("# 🎓 College Enquiry Chatbot")
-st.markdown(
-    "Ask questions about **admissions, courses, fees, scholarships, placements, and facilities**."
-)
-st.markdown("---")
 
 # Sidebar
 with st.sidebar:
@@ -178,6 +257,17 @@ with st.sidebar:
         🕐 9 AM – 5 PM (Mon–Fri)
         """
     )
+
+# Main header
+st.markdown(
+    """
+    <div class="app-title">
+        <h1>🎓 College Enquiry Chatbot</h1>
+        <p>Ask questions about admissions, courses, fees, scholarships, placements, and facilities.</p>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 # Display chat history
 for msg in st.session_state.messages:
@@ -259,6 +349,6 @@ if (send_clicked or pending) and (user_input or pending):
 # Footer
 st.markdown("---")
 st.markdown(
-    "<center><i>Made with ❤️ | College Enquiry Chatbot v1.0</i></center>",
+    "<div style='text-align:center; color:" + muted + ";'><i>Made with ❤️ | College Enquiry Chatbot v1.0</i></div>",
     unsafe_allow_html=True,
 )
